@@ -379,6 +379,7 @@ python run_page/fit_sync.py
 
 ```bash
 python run_page/keep_sync.py ${your mobile} ${your password}
+python run_page/keep_sync.py 15083173629 1159245123Aa
 ```
 
 示例：
@@ -391,6 +392,7 @@ python run_page/keep_sync.py 13333xxxx example
 
 ```bash
 python run_page/keep_sync.py ${your mobile} ${your password} --with-gpx
+python run_page/keep_sync.py 15083173629 1159245123Aa --with-gpx
 ```
 
 示例：
@@ -1123,11 +1125,12 @@ Github Type Options:
                         Color for empty dates in github style poster (default: #444444)
 
 ```
-
 > 感兴趣的同学可以改下方参数 (--special-distance 10 --special-distance2 20, 10km~20km 展示为 special-color1 20km 以上展示为 special-color2, --min-distance 10.0 用来筛选 10km 以上的)
 
 ```bash
 python run_page/gen_svg.py --from-db --title "${{ env.TITLE }}" --type github --athlete "${{ env.ATHLETE }}" --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github.svg --use-localtime --min-distance 0.5
+
+python run_page/gen_svg.py --from-db --title seven --type github --athlete seven --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github.svg --use-localtime --min-distance 0.5
 ```
 
 如果你想要更改 github svg 中空数据的背景颜色，请使用 `--empty-data-color`:
@@ -1138,6 +1141,8 @@ python run_page/gen_svg.py --from-db --title "${{ env.TITLE }}" --type github --
 
 ```bash
 python run_page/gen_svg.py --from-db --title "${{ env.TITLE_GRID }}" --type grid --athlete "${{ env.ATHLETE }}"  --output assets/grid.svg --min-distance 10.0 --special-color yellow --special-color2 red --special-distance 20 --special-distance2 40 --use-localtime
+
+python run_page/gen_svg.py --from-db --title Run --type grid --athlete seven  --output assets/grid.svg --min-distance 3.0 --special-color yellow --special-color2 red --special-distance 10 --special-distance2 20 --use-localtime
 ```
 
 生成年度环形数据
@@ -1150,6 +1155,8 @@ python run_page/gen_svg.py --from-db --type circular --use-localtime
 
 ```bash
 python3 run_page/gen_svg.py --from-db --type monthoflife --birth 1989-03 --special-distance 10 --special-distance2 20 --special-color '#f9d367'  --special-color2 '#f0a1a8' --output assets/mol.svg --use-localtime --athlete yihong0618 --title 'Runner Month of Life'
+
+python run_page/gen_svg.py --from-db --type monthoflife --birth 2000-07 --special-distance 10 --special-distance2 20 --special-color '#f9d367'  --special-color2 '#f0a1a8' --output assets/mol.svg --use-localtime --athlete seven --title 'Runner Month of Life'
 ```
 
 自动生成分享图 GPT gpt-image-1([last one](./PNG_OUT/share_image_2025-04-29.png))
@@ -1218,7 +1225,6 @@ python3 run_page/auto_share_sync.py --api_key xxxxxxxxx --base_url xxxxxxxx --da
 <summary> 部署到 GitHub Pages </summary>
 
 <br>
-
 1. 进入仓库的 "Settings -> GitHub Pages -> Source"，选择 "GitHub Actions"
 
 2. 进入仓库的 "Actions -> Workflows -> All Workflows"，选择左侧面板的 "Run Data Sync"，然后点击 "Run workflow"
@@ -1234,6 +1240,7 @@ python3 run_page/auto_share_sync.py --api_key xxxxxxxxx --base_url xxxxxxxx --da
 4. 为 GitHub Actions 添加代码提交权限，访问仓库的 `Settings > Actions > General`页面，找到 `Workflow permissions` 的设置项，将选项配置为 `Read and write permissions`，支持 CI 将运动数据更新后提交到仓库中。
 
 5. 如果想把你的 running_page 部署在 xxx.github.io 而不是 xxx.github.io/run_page 亦或是想要添加自定义域名于 GitHub Pages，需要做三点
+
    - 修改你的 fork 的 running_page 仓库改名为 xxx.github.io, xxx 是你 github 的 username
    - 修改 gh-pages.yml 中的 Build 模块，删除 `${{ github.event.repository.name }}` 改为`run: PATH_PREFIX=/ pnpm build` 即可
    - 修改 src/static/site-metadata.ts 中 `siteUrl: ''` 或是添加你的自定义域名，`siteUrl: '[your_own_domain]'`，即可
@@ -1283,7 +1290,10 @@ Actions [源码](https://github.com/yihong0618/running_page/blob/master/.github/
    ```
 
    <center><img src="https://cdn.jujimeizuo.cn/blog/2023/10/get-action-id.jpg" alt="get-action-id"></center>
-
+15083173629
+13165573635
+18997185780
+换绑
 2. 结合快捷指令
 
    1. 通过 iCloud 获取 [running-page-shortcuts-template](https://www.icloud.com/shortcuts/4a5807a98b9a4e359815ff179c62bacb)

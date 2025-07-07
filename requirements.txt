@@ -7,10 +7,10 @@ colour>=0.1.5
 s2sphere
 arrow
 geopy
-polyline
+polyline>=2.0.1
 sqlalchemy
 tzfpy; platform_system != "Windows"
-timezonefinder; platform_system == "Windows"
+timezonefinder>=6.5.8; platform_system == "Windows"
 pyyaml
 aiofiles
 cloudscraper==1.2.58
@@ -30,3 +30,4 @@ pycryptodome
 duckdb
 openai==1.88.0
 cairosvg
+setuptools>=40.8.0
